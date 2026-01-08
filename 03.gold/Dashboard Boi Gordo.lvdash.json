@@ -1,0 +1,288 @@
+{
+  "datasets": [
+    {
+      "name": "832261e4",
+      "displayName": "Untitled dataset",
+      "queryLines": [
+        "SELECT * FROM vw_gold_dashboard;"
+      ],
+      "catalog": "kpuudata",
+      "schema": "gold_economia"
+    }
+  ],
+  "pages": [
+    {
+      "name": "3e01d74f",
+      "displayName": "Dashboard Simples",
+      "layout": [
+        {
+          "widget": {
+            "name": "7bc35c2e",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "832261e4",
+                  "fields": [
+                    {
+                      "name": "monthly(data)",
+                      "expression": "DATE_TRUNC(\"MONTH\", `data`)"
+                    },
+                    {
+                      "name": "sum(ipca)",
+                      "expression": "SUM(`ipca`)"
+                    }
+                  ],
+                  "disaggregated": false,
+                  "orders": [
+                    {
+                      "direction": "DESC",
+                      "expression": "DATE_TRUNC(\"MONTH\", `data`)"
+                    }
+                  ]
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(ipca)"
+                },
+                "period": {
+                  "fieldName": "monthly(data)"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "IPCA"
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 0,
+            "width": 2,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "a03ac081",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "832261e4",
+                  "fields": [
+                    {
+                      "name": "monthly(data)",
+                      "expression": "DATE_TRUNC(\"MONTH\", `data`)"
+                    },
+                    {
+                      "name": "sum(boi_gordo)",
+                      "expression": "SUM(`boi_gordo`)"
+                    }
+                  ],
+                  "disaggregated": false,
+                  "orders": [
+                    {
+                      "direction": "DESC",
+                      "expression": "DATE_TRUNC(\"MONTH\", `data`)"
+                    }
+                  ]
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(boi_gordo)"
+                },
+                "period": {
+                  "fieldName": "monthly(data)"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Valor Boi Gordo"
+              }
+            }
+          },
+          "position": {
+            "x": 1,
+            "y": 0,
+            "width": 2,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "ce0c2134",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "832261e4",
+                  "fields": [
+                    {
+                      "name": "data",
+                      "expression": "`data`"
+                    },
+                    {
+                      "name": "boi_gordo",
+                      "expression": "`boi_gordo`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "data",
+                  "scale": {
+                    "type": "temporal"
+                  }
+                },
+                "y": {
+                  "fieldName": "boi_gordo",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Valor do Boi Gordo ao decorrer do ano"
+              }
+            }
+          },
+          "position": {
+            "x": 1,
+            "y": 4,
+            "width": 4,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "73b6d51b",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "832261e4",
+                  "fields": [
+                    {
+                      "name": "yearly(data)",
+                      "expression": "DATE_TRUNC(\"YEAR\", `data`)"
+                    },
+                    {
+                      "name": "avg(boi_gordo)",
+                      "expression": "AVG(`boi_gordo`)"
+                    }
+                  ],
+                  "disaggregated": false,
+                  "orders": [
+                    {
+                      "direction": "DESC",
+                      "expression": "DATE_TRUNC(\"YEAR\", `data`)"
+                    }
+                  ]
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "avg(boi_gordo)"
+                },
+                "period": {
+                  "fieldName": "yearly(data)"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Valor Médio Boi Gordo 2025"
+              }
+            }
+          },
+          "position": {
+            "x": 1,
+            "y": 2,
+            "width": 2,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "e97ed46f",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "832261e4",
+                  "fields": [
+                    {
+                      "name": "yearly(data)",
+                      "expression": "DATE_TRUNC(\"YEAR\", `data`)"
+                    },
+                    {
+                      "name": "avg(ipca)",
+                      "expression": "AVG(`ipca`)"
+                    }
+                  ],
+                  "disaggregated": false,
+                  "orders": [
+                    {
+                      "direction": "DESC",
+                      "expression": "DATE_TRUNC(\"YEAR\", `data`)"
+                    }
+                  ]
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "avg(ipca)"
+                },
+                "period": {
+                  "fieldName": "yearly(data)"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Valor Médio Boi Gordo 2025"
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 2,
+            "width": 2,
+            "height": 2
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    },
+    "applyModeEnabled": false
+  }
+}
